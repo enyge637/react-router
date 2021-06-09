@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, NavLink, Route } from "react-router-dom";
 import Profile from "./Profile";
+import WithRouterSample from "./WithRouterSample";
 
 function Profiles() {
   return (
@@ -8,10 +9,20 @@ function Profiles() {
       <h3>유저 목록</h3>
       <ul>
         <li>
-          <Link to="/profiles/enyge">enyge</Link>
+          <NavLink
+            to="/profiles/enyge"
+            activeStyle={{ background: "black", color: "white" }}
+          >
+            enyge
+          </NavLink>
         </li>
         <li>
-          <Link to="/profiles/gildong">gildong</Link>
+          <NavLink
+            to="/profiles/gildong"
+            activeStyle={{ background: "black", color: "white" }}
+          >
+            gildong
+          </NavLink>
         </li>
       </ul>
       <Route
@@ -20,6 +31,7 @@ function Profiles() {
         render={() => <div>유저를 선택해주세요.</div>}
       />
       <Route path="/profiles/:username" component={Profile} />
+      <WithRouterSample />
     </div>
   );
 }
